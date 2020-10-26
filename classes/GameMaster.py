@@ -27,38 +27,38 @@ class GameMaster:
 
     def compare_codes(self, code, attempt):
 
-        # Winner winner chicken dinner
         if code == attempt:
-            return True
+            return True  # winner winner chicken dinner
 
         feedback = []
 
-        # Check the attempt sequence for exact matches
-        for index, peg in enumerate(attempt):
+        # check the sequence for exact matches
+        for index, peg in enumerate(attempt.copy()):
 
             if code[index] == peg:
                 feedback.append("black")
                 code[index] = ""
 
-        # Then check remaining for any occurances
-        for index, peg in enumerate(attempt):
+        # then check remaining for any occurances
+        for index, peg in enumerate(attempt.copy()):
 
             if peg in code:
                 feedback.append("white")
                 code[index] = ""
 
-        # Output feedback
+        # output feedback
         print()
         print("Your code:")
         print(attempt)
         print()
         print("Results:")
         print(feedback)
-        print()
-        print("Remember, 'black' is a direct hit. 'white' indicates an occurance somewhere in the sequence.")
+        print(
+            "...remember, 'black' is a direct hit. 'white' just indicates an occurance of your color somewhere in the sequence."
+        )
         print()
 
-        # Return code_cracked
+        # code crack attempt unsuccessful
         return False
 
     def announce_round(self, current_round, rounds):

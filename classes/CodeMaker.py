@@ -4,6 +4,8 @@ import random
 class CodeMaker:
 
     code = []
+    colors = []
+    length = 4
 
     def __init__(self, code_length, colors):
         self.code_length = code_length
